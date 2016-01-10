@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  videoUrl: MyString
+  createdBy: MyString
+  script: MyText
+  lastUpdated: 2016-01-10 17:23:17
+
+two:
+  videoUrl: MyString
+  createdBy: MyString
+  script: MyText
+  lastUpdated: 2016-01-10 17:23:17

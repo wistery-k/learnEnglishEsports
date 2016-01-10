@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Videourl:</strong>
+  <%= @video_content.videoUrl %>
+</p>
+
+<p>
+  <strong>Createdby:</strong>
+  <%= @video_content.createdBy %>
+</p>
+
+<p>
+  <strong>Script:</strong>
+  <%= @video_content.script %>
+</p>
+
+<p>
+  <strong>Lastupdated:</strong>
+  <%= @video_content.lastUpdated %>
+</p>
+
+<%= link_to 'Edit', edit_video_content_path(@video_content) %> |
+<%= link_to 'Back', video_contents_path %>
