@@ -1,33 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Video Contents</h1>
-
-<table>
+<%- model_class = VideoContent -%>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Videourl</th>
-      <th>Createdby</th>
-      <th>Script</th>
-      <th>Lastupdated</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:video) %></th>
+      <th><%= model_class.human_attribute_name(:script) %></th>
+      <th><%= model_class.human_attribute_name(:updated) %></th>
+      <th><%= model_class.human_attribute_name(:created) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @video_contents.each do |video_content| %>
       <tr>
-        <td><%= video_content.videoUrl %></td>
-        <td><%= video_content.createdBy %></td>
+        <td><img src="http://img.youtube.com/vi/<%= video_content.videoUrl %>/1.jpg"></td>
         <td><%= video_content.script %></td>
         <td><%= video_content.lastUpdated %></td>
-        <td><%= link_to 'Show', video_content %></td>
-        <td><%= link_to 'Edit', edit_video_content_path(video_content) %></td>
-        <td><%= link_to 'Destroy', video_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l video_content.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_video_content_path(video_content), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      video_content_path(video_content),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Video content', new_video_content_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_video_content_path,
+            :class => 'btn btn-primary' %>

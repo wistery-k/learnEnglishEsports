@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = VideoContent -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Videourl:</strong>
-  <%= @video_content.videoUrl %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:videoUrl) %>:</strong></dt>
+  <dd><%= @video_content.videoUrl %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:createdBy) %>:</strong></dt>
+  <dd><%= @video_content.createdBy %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:script) %>:</strong></dt>
+  <dd><%= @video_content.script %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lastUpdated) %>:</strong></dt>
+  <dd><%= @video_content.lastUpdated %></dd>
+</dl>
 
-<p>
-  <strong>Createdby:</strong>
-  <%= @video_content.createdBy %>
-</p>
-
-<p>
-  <strong>Script:</strong>
-  <%= @video_content.script %>
-</p>
-
-<p>
-  <strong>Lastupdated:</strong>
-  <%= @video_content.lastUpdated %>
-</p>
-
-<%= link_to 'Edit', edit_video_content_path(@video_content) %> |
-<%= link_to 'Back', video_contents_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              video_contents_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_video_content_path(@video_content), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              video_content_path(@video_content),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
