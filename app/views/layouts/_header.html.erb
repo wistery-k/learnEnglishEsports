@@ -2,8 +2,15 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Shadowing.gg</a>
-      <p class="navbar-text">Top</p>
-      <p class="navbar-text">About</p>
     </div>
+    <ul class="nav navbar-nav">
+      <li class="navbar-text">Top</li>
+      <li class="navbar-text">About</li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+      <li>Signed in as <%= current_user.name %> <img class="header_profile_image" src="<%= current_user.profile_image %>"></li>
+      <% end %>
+    </ul>
   </div>
 </nav>
