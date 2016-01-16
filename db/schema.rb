@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113122652) do
+ActiveRecord::Schema.define(version: 20160116143525) do
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(version: 20160113122652) do
 
   create_table "video_contents", force: :cascade do |t|
     t.string   "videoUrl"
-    t.string   "createdBy"
     t.text     "script"
-    t.datetime "lastUpdated"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "video_contents", ["user_id"], name: "index_video_contents_on_user_id"
 
 end

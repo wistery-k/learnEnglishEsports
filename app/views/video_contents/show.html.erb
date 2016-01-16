@@ -3,15 +3,14 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video_content.videoUrl %>" frameborder="0" allowfullscreen></iframe>
+<textarea> <%= @video_content.script %> </textarea>
+
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:videoUrl) %>:</strong></dt>
-  <dd><%= @video_content.videoUrl %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:createdBy) %>:</strong></dt>
-  <dd><%= @video_content.createdBy %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:script) %>:</strong></dt>
-  <dd><%= @video_content.script %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:lastUpdated) %>:</strong></dt>
-  <dd><%= @video_content.lastUpdated %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+  <dd><%= @video_content.created_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+  <dd><%= @video_content.updated_at %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

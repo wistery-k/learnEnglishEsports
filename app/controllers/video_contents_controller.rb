@@ -69,6 +69,8 @@ class VideoContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_content_params
-      params.require(:video_content).permit(:videoUrl, :createdBy, :script, :lastUpdated)
+      prm = params.require(:video_content).permit(:videoUrl, :script)
+      prm[:user_id] = current_user.id
+      return prm
     end
 end

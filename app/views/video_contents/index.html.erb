@@ -14,7 +14,7 @@
       <tr>
         <td><img src="http://img.youtube.com/vi/<%= video_content.videoUrl %>/1.jpg"></td>
         <td><%= video_content.script %></td>
-        <td><%= video_content.lastUpdated %></td>
+        <td><%= video_content.updated_at %></td>
         <td><%=l video_content.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
